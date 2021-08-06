@@ -1,0 +1,23 @@
+name: module3
+description: Module 3 frontend
+version: 0.0.1
+homepage: https://github.com/MarkoMajamaki
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared:
+    path: ../shared
+  modulary:
+    path: ../../modulary
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:

@@ -1,0 +1,1 @@
+Not production ready library to make modular Flutter apps

@@ -1,0 +1,1 @@
+Executable project which is extended from other modules 

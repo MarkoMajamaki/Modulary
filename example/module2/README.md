@@ -1,0 +1,1 @@
+Module2 which extends app through registrations

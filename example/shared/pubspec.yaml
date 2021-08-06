@@ -1,0 +1,21 @@
+name: shared
+description: Common shared package
+version: 0.0.1
+homepage: https://github.com/MarkoMajamaki
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get_it: ^6.0.0
+  flutkit: ^0.0.2
+  provider: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: Flutter
+
+flutter:
