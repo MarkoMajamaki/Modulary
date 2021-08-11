@@ -19,7 +19,7 @@ class _MainMenuState extends State<MainMenu> {
 
   @override
   Widget build(BuildContext context) {
-    _mainMenuWidgets = Extensions.getExtensions<Widget>(mainMenuWidgetKey);
+    _mainMenuWidgets = Extensions.get<Widget>(mainMenuWidgetKey);
     _mainMenuWidgets.insert(0, ModularListMainMenuWidget());
     _mainMenuWidgets.insert(0, ModularTabMainMenuWidget());
 

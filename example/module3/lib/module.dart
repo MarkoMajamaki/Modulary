@@ -6,7 +6,7 @@ import 'package:shared/extension_keys.dart';
 
 class Module3 implements Module {
   void initialize() {
-    Extensions.registerExtension(mainMenuWidgetKey, () => MainMenuWidget());
+    Extensions.register(mainMenuWidgetKey, () => MainMenuWidget());
   }
 
   Map<String, Widget Function(BuildContext p1)> get routes {

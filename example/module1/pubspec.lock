@@ -68,7 +68,7 @@ packages:
     source: sdk
     version: "0.0.0"
   get_it:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: get_it
       url: "https://pub.dartlang.org"
@@ -94,7 +94,7 @@ packages:
       path: "../../modulary"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   nested:
     dependency: transitive
     description:

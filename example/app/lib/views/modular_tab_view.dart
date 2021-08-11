@@ -22,7 +22,7 @@ class _ModularTabViewState extends State<ModularTabView> {
     super.initState();
 
     // Get tab extensions
-    _tabs = Extensions.getExtensions<TabExtension>(modularTabKey);
+    _tabs = Extensions.get<TabExtension>(modularTabKey);
   }
 
   @override

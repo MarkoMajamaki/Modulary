@@ -9,22 +9,21 @@ class Extensions {
   //
   // Register extension with key
   //
-  static void registerExtension(String key, Function createExtension,
-      {int weight = 0}) {
-    _registerExtensionInternal(key, _ExtensionItem(createExtension, weight));
+  static void register(String key, Function createExtension, {int weight = 0}) {
+    _registerInternal(key, _ExtensionItem(createExtension, weight));
   }
 
   //
   // Register collection of extension with key
   //
-  static void registerExtensionCollction(String key, Function createExtension) {
-    _registerExtensionInternal(key, _ExtensionItemCollection(createExtension));
+  static void registerCollction(String key, Function createExtension) {
+    _registerInternal(key, _ExtensionItemCollection(createExtension));
   }
 
   ///
   /// Do extension registering internal
   ///
-  static void _registerExtensionInternal(String key, _ExtensionItemBase ext) {
+  static void _registerInternal(String key, _ExtensionItemBase ext) {
     // Check is there any object registered with the same key
     if (_extensions.keys.contains(key)) {
       // Add new extension to the list
@@ -41,7 +40,7 @@ class Extensions {
   /// Get only type T extensions which are registered with key and await until
   /// every extension is created async
   ///
-  static Future<List<T>> getExtensionsAsync<T>(String key) async {
+  static Future<List<T>> getAsync<T>(String key) async {
     List<_CreatedExtension> extensions = [];
 
     // Check is there any object registered with same key
@@ -101,7 +100,7 @@ class Extensions {
   //
   // Get only type T extensions by key
   //
-  static List<T> getExtensions<T>(String key) {
+  static List<T> get<T>(String key) {
     List<_CreatedExtension> extensions = [];
 
     // Check is there any object registered with same key

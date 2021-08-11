@@ -9,20 +9,20 @@ import 'extensions/modular_tab_extension.dart';
 
 class Module2 implements Module {
   void initialize() {
-    Extensions.registerExtension(mainMenuWidgetKey, () => MainMenuWidget());
+    Extensions.register(mainMenuWidgetKey, () => MainMenuWidget());
 
     // Register list example extensions
-    Extensions.registerExtension(
+    Extensions.register(
         modularListKey, () => getModularListSingleItemExtension());
-    Extensions.registerExtensionCollction(
+    Extensions.registerCollction(
         modularListKey, () => getModularListMultipleItemExtension());
-    Extensions.registerExtension(
+    Extensions.register(
         modularAsyncListKey, () => getModularListSingleItemExtensionAsync());
-    Extensions.registerExtensionCollction(
+    Extensions.registerCollction(
         modularAsyncListKey, () => getModularListMultipleItemExtensionAsync());
 
     // Register tab view extension
-    Extensions.registerExtension(modularTabKey, () => getTabExtension());
+    Extensions.register(modularTabKey, () => getTabExtension());
   }
 
   Map<String, Widget Function(BuildContext p1)> get routes {
