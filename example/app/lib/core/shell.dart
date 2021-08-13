@@ -1,4 +1,3 @@
-import 'package:app/core/routes.dart';
 import 'package:app/core/theme.dart';
 import 'package:app/services/servicelocator.dart';
 import 'package:app/core/main_menu.dart';
@@ -28,7 +27,8 @@ class _ShellState extends State<Shell> {
           initialRoute: ModularListView.route,
           debugShowCheckedModeBanner: false,
           navigatorKey: serviceLocator<NavigationService>().getNavigatorKey(),
-          routes: Modules.routes(getRoutes()),
+          routes: Modules.routes(),
+          onGenerateRoute: (settings) => Modules.onGenerateRoute(settings),
         ),
         menu: MainMenu(),
         subMenuWidth: 250,
@@ -45,7 +45,8 @@ class _ShellState extends State<Shell> {
           initialRoute: ModularListView.route,
           debugShowCheckedModeBanner: false,
           navigatorKey: serviceLocator<NavigationService>().getNavigatorKey(),
-          routes: Modules.routes(getRoutes()),
+          routes: Modules.routes(),
+          onGenerateRoute: (settings) => Modules.onGenerateRoute(settings),
         ),
         menu: MainMenu(),
         menuWidth: 230,

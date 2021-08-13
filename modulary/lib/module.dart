@@ -3,14 +3,21 @@ import 'package:flutter/material.dart';
 ///
 /// Module initialization class base. Create
 ///
-abstract class Module {
+class Module {
   ///
   /// Called once when on startup
   ///
-  void initialize();
+  void initialize() {}
 
   ///
   /// Module routes
   ///
-  Map<String, Widget Function(BuildContext)> get routes;
+  Map<String, WidgetBuilder> get routes {
+    return Map();
+  }
+
+  ///
+  /// Generate route
+  ///
+  Route<dynamic>? onGenerateRoute(RouteSettings settings) {}
 }

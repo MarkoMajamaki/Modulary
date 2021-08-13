@@ -7,7 +7,7 @@ import 'package:shared/extension_keys.dart';
 import 'extensions/modular_list_extension.dart';
 import 'extensions/modular_tab_extension.dart';
 
-class Module2 implements Module {
+class Module2 extends Module {
   void initialize() {
     Extensions.register(mainMenuWidgetKey, () => MainMenuWidget());
 

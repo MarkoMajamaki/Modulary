@@ -4,7 +4,7 @@ import 'package:modulary/module.dart';
 import 'package:module3/widgets/mainmenu_widget.dart';
 import 'package:shared/extension_keys.dart';
 
-class Module3 implements Module {
+class Module3 extends Module {
   void initialize() {
     Extensions.register(mainMenuWidgetKey, () => MainMenuWidget());
   }

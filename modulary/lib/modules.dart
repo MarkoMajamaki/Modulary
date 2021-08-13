@@ -20,11 +20,8 @@ class Modules {
   ///
   /// Get all routes from every module
   ///
-  static Map<String, Widget Function(BuildContext)> routes(dynamic initRoutes) {
-    Map<String, Widget Function(BuildContext)> allRoutes = Map();
-
-    // Add initial routes
-    allRoutes.addAll(initRoutes);
+  static Map<String, WidgetBuilder> routes() {
+    Map<String, WidgetBuilder> allRoutes = Map();
 
     // Add routes from every modyle
     for (int i = 0; i < _modules.length; i++) {
@@ -32,5 +29,21 @@ class Modules {
     }
 
     return allRoutes;
+  }
+
+  ///
+  /// Generate routes
+  ///
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+    // Add routes from every modyle
+    for (int i = 0; i < _modules.length; i++) {
+      Route<dynamic>? route = _modules[i].onGenerateRoute(settings);
+
+      if (route != null) {
+        return route;
+      }
+    }
+
+    return null;
   }
 }

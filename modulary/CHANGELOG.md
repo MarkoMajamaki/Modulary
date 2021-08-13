@@ -1,3 +1,12 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Added first not production ready implementation
+
+## 0.0.2
+
+* Renamed methods
+
+## 0.0.3
+
+* Add support for module generated routes
+
