@@ -16,20 +16,20 @@ class Module1 extends Module {
   ///
   void initialize() {
     // Register mainmenu widget extensions
-    Extensions.register(mainMenuWidgetKey, () => MainMenuWidget());
+    Extensions.register(mainMenuWidgetKey, (context) => MainMenuWidget());
 
     // Register list view example extensions
     Extensions.register(
-        modularListKey, () => getModularListSingleItemExtension());
+        modularListKey, (context) => getModularListSingleItemExtension());
     Extensions.registerCollction(
-        modularListKey, () => getModularListMultipleItemExtension());
-    Extensions.register(
-        modularAsyncListKey, () => getModularListSingleItemExtensionAsync());
-    Extensions.registerCollction(
-        modularAsyncListKey, () => getModularListMultipleItemExtensionAsync());
+        modularListKey, (context) => getModularListMultipleItemExtension());
+    Extensions.register(modularAsyncListKey,
+        (context) => getModularListSingleItemExtensionAsync());
+    Extensions.registerCollction(modularAsyncListKey,
+        (context) => getModularListMultipleItemExtensionAsync());
 
     // Register tab view extension
-    Extensions.register(modularTabKey, () => getTabExtension());
+    Extensions.register(modularTabKey, (context) => getTabExtension(context!));
 
     // Register viewmodels for dependency injection
     setupServiceLocator();

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 ///
 /// Register extensions
 ///
@@ -9,14 +11,17 @@ class Extensions {
   //
   // Register extension with key
   //
-  static void register(String key, Function createExtension, {int weight = 0}) {
+  static void register(
+      String key, Function(BuildContext? context) createExtension,
+      {int weight = 0}) {
     _registerInternal(key, _ExtensionItem(createExtension, weight));
   }
 
   //
   // Register collection of extension with key
   //
-  static void registerCollction(String key, Function createExtension) {
+  static void registerCollction(
+      String key, Function(BuildContext? context) createExtension) {
     _registerInternal(key, _ExtensionItemCollection(createExtension));
   }
 
@@ -40,7 +45,8 @@ class Extensions {
   /// Get only type T extensions which are registered with key and await until
   /// every extension is created async
   ///
-  static Future<List<T>> getAsync<T>(String key) async {
+  static Future<List<T>> getAsync<T>(String key,
+      [BuildContext? context]) async {
     List<_CreatedExtension> extensions = [];
 
     // Check is there any object registered with same key
@@ -51,7 +57,8 @@ class Extensions {
       // Start every extension creation simultaneously without awaiting
       for (int i = 0; i < _extensions[key]!.length; i++) {
         var extItem = _extensions[key]![i];
-        extensionCreating.add(_CreatingExtension(extItem.create(), extItem));
+        extensionCreating
+            .add(_CreatingExtension(extItem.create(context), extItem));
       }
 
       // Loop all extensions which are going to be created async or already created sync
@@ -100,7 +107,7 @@ class Extensions {
   //
   // Get only type T extensions by key
   //
-  static List<T> get<T>(String key) {
+  static List<T> get<T>(String key, [BuildContext? context]) {
     List<_CreatedExtension> extensions = [];
 
     // Check is there any object registered with same key
@@ -110,7 +117,7 @@ class Extensions {
 
         if (extItem is _ExtensionItemCollection) {
           // Create collection of extension objects
-          var extensionCollection = extItem.create();
+          var extensionCollection = extItem.create(context);
 
           // Add all single items from collection to extension list
           for (int i = 0; i < extensionCollection.length; i++) {
@@ -118,7 +125,7 @@ class Extensions {
           }
         } else {
           var item = extItem as _ExtensionItem;
-          extensions.add(_CreatedExtension(item.create(), item.weight));
+          extensions.add(_CreatedExtension(item.create(context), item.weight));
         }
       }
     }
@@ -152,7 +159,7 @@ class Extensions {
 /// Base class for registered extensions
 ///
 class _ExtensionItemBase {
-  final Function create;
+  final Function(BuildContext? context) create;
   _ExtensionItemBase(this.create);
 }
 

@@ -18,15 +18,8 @@ class _ModularTabViewState extends State<ModularTabView> {
   late List<TabExtension> _tabs;
 
   @override
-  void initState() {
-    super.initState();
-
-    // Get tab extensions
-    _tabs = Extensions.get<TabExtension>(modularTabKey);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    _tabs = Extensions.get<TabExtension>(modularTabKey, context);
     return DefaultTabController(
       length: _tabs.length,
       child: Scaffold(

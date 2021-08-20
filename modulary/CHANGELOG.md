@@ -10,3 +10,6 @@
 
 * Add support for module generated routes
 
+## 0.0.4
+
+* Pass BuildContext to registered objects
