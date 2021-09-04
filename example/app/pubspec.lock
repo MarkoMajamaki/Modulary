@@ -101,7 +101,7 @@ packages:
       path: "../../modulary"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.3"
   module1:
     dependency: "direct main"
     description:

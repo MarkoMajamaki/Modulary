@@ -1,7 +1,7 @@
 name: modulary
 description: Package for modular development
-version: 0.0.3
-homepage: https://github.com/MarkoMajamaki
+version: 0.0.4
+homepage: https://github.com/MarkoMajamaki/Modulary
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
